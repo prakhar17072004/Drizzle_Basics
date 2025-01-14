@@ -1,14 +1,13 @@
 import { drizzle } from "drizzle-orm/node-postgres";
 import pg from "pg";
+import * as dotenv from 'dotenv';
 
-// Update username to match the PostgreSQL username, case-sensitive
+dotenv.config(); // Load the .env file
+
 const client = new pg.Client({
-    host: "localhost",
-    port: "5432", // Default PostgreSQL port
-    user: "postgres", // Ensure this matches the correct username in PostgreSQL
-    password: "123456789", // Ensure this matches the correct password
-    database: "db_prakhar", // Ensure this matches your database
+    connectionString: process.env.DATABASE_URL, // Use the DATABASE_URL from the .env file
 });
+console.log(process.env.DATABASE_URL); // Verify the connection string
 
 client.connect()
     .then(() => {
