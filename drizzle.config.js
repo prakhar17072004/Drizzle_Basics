@@ -1,9 +1,9 @@
-
-export default {
+import { defineConfig } from "drizzle-kit";
+export default defineConfig( {
     dialect: "postgresql",
   schema: "./schema.js",
-  out:"drizzle",
-  driver: "pg",
+  out:"./data",
+  driver: "pglite",
   dbCredentials: {
     host: "localhost",
     port: "5432", // Default PostgreSQL port
@@ -12,4 +12,4 @@ export default {
     database: "postgres",
   },
   
-};
+});
