@@ -10,6 +10,7 @@ app.post('/users', async (req, res) => {
     const { name, email, bio } = req.body;
     const result = await db.insert(users).values({ name, email, bio });
     res.json({ message: 'User added successfully', result });
+    
 });
 
 // Get all users
