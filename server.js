@@ -1,6 +1,6 @@
 import express from 'express';
 import db from './db/DB_Connect.js';
-import { users } from './db/schema.js';
+import { users,authers,books } from './db/schema.js';
 
 const app = express();
 app.use(express.json());
@@ -9,6 +9,18 @@ app.use(express.json());
 app.post('/users', async (req, res) => {
     const { name, email, bio } = req.body;
     const result = await db.insert(users).values({ name, email, bio });
+    res.json({ message: 'User added successfully', result });
+    
+});
+app.post('/authers', async (req, res) => {
+    const { name, email, bio } = req.body;
+    const result = await db.insert(authers).values({ name, email, bio });
+    res.json({ message: 'User added successfully', result });
+    
+});
+app.post('/books', async (req, res) => {
+    const { name } = req.body;
+    const result = await db.insert(books).values({ name});
     res.json({ message: 'User added successfully', result });
     
 });
