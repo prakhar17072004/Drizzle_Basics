@@ -1,6 +1,6 @@
 import express from 'express';
-import db from './DB/DB_Connect.js';
-import { users } from './schema.js';
+import db from './db/DB_Connect.js';
+import { users } from './db/schema.js';
 
 const app = express();
 app.use(express.json());

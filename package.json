@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node server.js",
     "migration:generate": "drizzle-kit generate",
-    "migration:push":"node -r esbuild-register DB/migrate.js"
+    "migration:push":"node -r esbuild-register db/migrate.js"
   },
   "keywords": [],
   "author": "",
