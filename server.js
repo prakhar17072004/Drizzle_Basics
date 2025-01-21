@@ -1,6 +1,6 @@
 import express from 'express';
 import db from './db/DB_Connect.js';
-import { users,authers,books } from './db/schema.js';
+import { authers,books } from './db/schema.js';
 
 const app = express();
 app.use(express.json());
@@ -19,8 +19,8 @@ app.post('/auther', async (req, res) => {
     
 });
 app.post('/books', async (req, res) => {
-    const { name } = req.body;
-    const result = await db.insert(books).values({ name});
+    const { auther_id,name } = req.body;
+    const result = await db.insert(books).values({ auther_id,name});
     res.json({ message: 'User added successfully', result });
     
 });

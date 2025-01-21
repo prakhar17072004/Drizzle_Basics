@@ -1,5 +1,5 @@
 {
-  "id": "986cd540-59a3-4dae-9232-4c4edc0d25e1",
+  "id": "8c9dda48-4a67-412a-ae4a-9fd3a34862f7",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -51,6 +51,12 @@
           "primaryKey": true,
           "notNull": true
         },
+        "auther_id": {
+          "name": "auther_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
         "name": {
           "name": "name",
           "type": "varchar(25)",
@@ -59,7 +65,21 @@
         }
       },
       "indexes": {},
-      "foreignKeys": {},
+      "foreignKeys": {
+        "books_auther_id_auther_id_fk": {
+          "name": "books_auther_id_auther_id_fk",
+          "tableFrom": "books",
+          "tableTo": "auther",
+          "columnsFrom": [
+            "auther_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {},
       "policies": {},

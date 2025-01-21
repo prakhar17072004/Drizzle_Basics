@@ -1,15 +1,18 @@
-import { pgTable, serial, text, varchar } from 'drizzle-orm/pg-core';
+import { pgTable, serial, text, varchar, integer } from 'drizzle-orm/pg-core';
 
-// Define a "users" table
-
+// Define the "authers" table
 export const authers = pgTable('auther', {
-    id: serial('id').primaryKey(),
-    name: varchar('name', { length: 25 }).notNull(),
-    email: varchar('email', { length: 25 }).notNull(),
-    bio: text('bio'),
+    id: serial('id').primaryKey(), // Primary key for authors
+    name: varchar('name', { length: 25 }).notNull(), // Name of the author
+    email: varchar('email', { length: 25 }).notNull(), // Email of the author
+    bio: text('bio'), // Bio of the author
 });
+
+// Define the "books" table
 export const books = pgTable('books', {
-    id: serial('id').primaryKey(),
-    name: varchar('name', { length: 25 }).notNull(),
-    
+    id: serial('id').primaryKey(), // Primary key for books
+    auther_id: integer('auther_id') // Foreign key referencing `authers.id`
+        .notNull()
+        .references(() => authers.id),
+    name: varchar('name', { length: 25 }).notNull(), // Name of the book
 });
