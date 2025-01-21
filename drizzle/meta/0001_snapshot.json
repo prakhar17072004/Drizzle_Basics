@@ -1,0 +1,101 @@
+{
+  "id": "82817f31-32e8-4ea9-95ec-5881765950bc",
+  "prevId": "8c9dda48-4a67-412a-ae4a-9fd3a34862f7",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.auther": {
+      "name": "auther",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "auther_name": {
+          "name": "auther_name",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email": {
+          "name": "email",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "bio": {
+          "name": "bio",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.books": {
+      "name": "books",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "auther_id": {
+          "name": "auther_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "books_name": {
+          "name": "books_name",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "books_auther_id_auther_id_fk": {
+          "name": "books_auther_id_auther_id_fk",
+          "tableFrom": "books",
+          "tableTo": "auther",
+          "columnsFrom": [
+            "auther_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}
