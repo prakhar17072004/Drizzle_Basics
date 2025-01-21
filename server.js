@@ -13,14 +13,14 @@ app.post('/users', async (req, res) => {
     
 });
 app.post('/auther', async (req, res) => {
-    const { name, email, bio } = req.body;
-    const result = await db.insert(authers).values({ name, email, bio });
+    const { auther_name, email, bio } = req.body;
+    const result = await db.insert(authers).values({ auther_name, email, bio });
     res.json({ message: 'User added successfully', result });
     
 });
 app.post('/books', async (req, res) => {
-    const { auther_id,name } = req.body;
-    const result = await db.insert(books).values({ auther_id,name});
+    const { auther_id,books_name } = req.body;
+    const result = await db.insert(books).values({ auther_id,books_name});
     res.json({ message: 'User added successfully', result });
     
 });
