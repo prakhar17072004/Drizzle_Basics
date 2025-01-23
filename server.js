@@ -13,6 +13,7 @@ app.post('/auther', async (req, res) => {
     res.json({ message: 'User added successfully', result });
     
 });
+//Add new books
 app.post('/books', async (req, res) => {
     const { auther_id,books_name } = req.body;
     const result = await db.insert(books).values({ auther_id,books_name});
