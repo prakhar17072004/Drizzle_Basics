@@ -30,7 +30,14 @@ app.get('/users', async (_req, res) => {
     const allUsers = await db.select().from(users);
     res.json(allUsers);
 });
-
+app.get('/auther', async (_req, res) => {
+    const allAuther = await db.select().from(authers);
+    res.json(allAuther);
+});
+app.get('/books', async (_req, res) => {
+    const allBooks = await db.select().from(books);
+    res.json(allBooks);
+});
 // Start the server
 const PORT = 3000;
 app.listen(PORT, () => {
