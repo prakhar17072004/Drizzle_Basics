@@ -25,11 +25,8 @@ app.post('/books', async (req, res) => {
     
 });
 
-// Get all users
-app.get('/users', async (_req, res) => {
-    const allUsers = await db.select().from(users);
-    res.json(allUsers);
-});
+// Get all authers
+
 app.get('/auther', async (_req, res) => {
     const allAuther = await db.select().from(authers);
     res.json(allAuther);
