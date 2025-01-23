@@ -5,13 +5,8 @@ import { authers,books } from './db/schema.js';
 const app = express();
 app.use(express.json());
 
-// Add a new user
-app.post('/users', async (req, res) => {
-    const { name, email, bio } = req.body;
-    const result = await db.insert(users).values({ name, email, bio });
-    res.json({ message: 'User added successfully', result });
-    
-});
+// Add a new authers
+
 app.post('/auther', async (req, res) => {
     const { auther_name, email, bio } = req.body;
     const result = await db.insert(authers).values({ auther_name, email, bio });
