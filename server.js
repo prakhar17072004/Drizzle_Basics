@@ -31,6 +31,7 @@ app.get('/auther', async (_req, res) => {
     const allAuther = await db.select().from(authers);
     res.json(allAuther);
 });
+//get all books
 app.get('/books', async (_req, res) => {
     const allBooks = await db.select().from(books);
     res.json(allBooks);
